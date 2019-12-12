@@ -1,11 +1,12 @@
 import React from 'react';
 import Validator from './validator'
 
-class PostUserForm extends React.Component {
+class CreateUserForm extends React.Component {
 
     private errors = {
         username: {},
         password: {},
+        check_password: {},
         email: {},
         phone_number: {},
     }
@@ -14,6 +15,7 @@ class PostUserForm extends React.Component {
         this.state = {
             username: '',
             password: '',
+            check_password: '',
             email: '',
             phone_number: '',
         };
@@ -34,6 +36,9 @@ class PostUserForm extends React.Component {
                 validator.containSpecialCharacter()
                 this.errors.password = this.FieldValid(validator);
                 break;
+            case "check_password":
+                validator.equalValue("");
+                break;
             case "username":
                 validator.required();
                 validator.length(6);
@@ -50,12 +55,9 @@ class PostUserForm extends React.Component {
                 this.errors.phone_number = this.FieldValid(validator);
         }
 
-        if (this.FormValid()) {
-            (document.getElementById("submit") as HTMLButtonElement).disabled = false;
+        this.isFormValid();
 
-        } else {
-            (document.getElementById("submit") as HTMLButtonElement).disabled = true;
-        }
+
     }
 
     FieldValid(validator: Validator) {
@@ -72,13 +74,21 @@ class PostUserForm extends React.Component {
         }
         return str;
     }
-    FormValid() {
+    isFormValid() {
+        var formValid = true;
         // for (var key in this.errors) {
         // if (Object.keys(this.errors[key]).length !== 0) {
-        // return false;
+        // formValid = false;
+        // break;
         // }
         // }
-        return true;
+
+        if (formValid) {
+            (document.getElementById("submit") as HTMLButtonElement).disabled = false;
+
+        } else {
+            (document.getElementById("submit") as HTMLButtonElement).disabled = true;
+        }
     }
 
     handleSubmit(event: any) {
@@ -103,6 +113,14 @@ class PostUserForm extends React.Component {
                         onChange={this.myChangeHandler} />
                     {this.dislayArray(this.errors.password)}
                 </label>
+                <label>Enter your password again:
+                <input
+                        type='password'
+                        name='check_password'
+                        placeholder='Enter again your password'
+                        onChange={this.myChangeHandler} />
+                    {this.dislayArray(this.errors.check_password)}
+                </label>
                 <label>Enter your email:
                 <input
                         type='email'
@@ -124,4 +142,4 @@ class PostUserForm extends React.Component {
         );
     }
 }
-export default PostUserForm;
+export default CreateUserForm;

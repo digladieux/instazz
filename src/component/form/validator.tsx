@@ -20,6 +20,11 @@ class Validator {
         }
     }
 
+    equalValue(value: String) {
+        if (this.StringToValidate !== value) {
+            this.ErrorsMessage.equal = "Fields are different";
+        }
+    }
     containLowercase() {
         var lowercase_regex = new RegExp("[a-z]");
         if (!this.StringToValidate.match(lowercase_regex)) {

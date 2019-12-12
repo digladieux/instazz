@@ -1,7 +1,7 @@
 import React from 'react';
 import Validator from './validator'
 
-class Login extends React.Component {
+class LoginForm extends React.Component {
 
     private errors = {
         username: {},
@@ -31,12 +31,7 @@ class Login extends React.Component {
                 break;
         }
 
-        if (this.FormValid()) {
-            (document.getElementById("submit") as HTMLButtonElement).disabled = false;
-
-        } else {
-            (document.getElementById("submit") as HTMLButtonElement).disabled = true;
-        }
+        this.isFormValid();
     }
 
     FieldValid(validator: Validator) {
@@ -53,13 +48,21 @@ class Login extends React.Component {
         }
         return str;
     }
-    FormValid() {
+    isFormValid() {
+        var formValid = true;
         // for (var key in this.errors) {
         // if (Object.keys(this.errors[key]).length !== 0) {
-        // return false;
+        // formValid = false;
+        // break;
         // }
         // }
-        return true;
+
+        if (formValid) {
+            (document.getElementById("submit") as HTMLButtonElement).disabled = false;
+
+        } else {
+            (document.getElementById("submit") as HTMLButtonElement).disabled = true;
+        }
     }
 
     handleSubmit(event: any) {
@@ -89,4 +92,4 @@ class Login extends React.Component {
         );
     }
 }
-export default Login;
+export default LoginForm;
