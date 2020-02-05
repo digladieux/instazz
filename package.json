@@ -1,12 +1,13 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://digladieux.gitlab.io/instazz/",
+  "homepage": "https://digladieux.github.io/instazz/",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
+    "gh-pages": "^2.2.0",
     "http-server": "^0.12.1",
     "passport-linkedin": "^1.0.0",
     "query-string": "^6.9.0",
@@ -23,9 +24,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env PUBLIC_URL=https://digladieux.gitlab.io/instazz/ react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
