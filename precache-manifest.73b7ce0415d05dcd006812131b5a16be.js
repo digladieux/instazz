@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9c9b45cb2560940edc29488006d0a0c3",
+    "revision": "e92f12b2ba63c1a76dd6f8f34ecc62e9",
     "url": "/instazz/index.html"
   },
   {
-    "revision": "0cbfb23e50904a1661b1",
+    "revision": "aa0a4198a9b392e9870d",
     "url": "/instazz/static/css/main.fe3606d0.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/instazz/static/js/2.197301fa.chunk.js.LICENSE"
   },
   {
-    "revision": "0cbfb23e50904a1661b1",
-    "url": "/instazz/static/js/main.ac500c6d.chunk.js"
+    "revision": "aa0a4198a9b392e9870d",
+    "url": "/instazz/static/js/main.8c2fbe5b.chunk.js"
   },
   {
     "revision": "a98cf077cc1640c70e98",
